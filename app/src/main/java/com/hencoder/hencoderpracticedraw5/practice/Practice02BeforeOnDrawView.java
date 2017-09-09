@@ -32,20 +32,23 @@ public class Practice02BeforeOnDrawView extends AppCompatTextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+
 
         // 把下面的绘制代码移到 super.onDraw() 的上面，就可以让原主体内容盖住你的绘制代码了
         // （或者你也可以把 super.onDraw() 移到这段代码的下面）
+        /*获得正在被绘制的StaticLayout*/
         Layout layout = getLayout();
+        /*参数为第index行的文字，从上为0开始，从下为count-1开始*/
         bounds.left = layout.getLineLeft(1);
         bounds.right = layout.getLineRight(1);
         bounds.top = layout.getLineTop(1);
         bounds.bottom = layout.getLineBottom(1);
         canvas.drawRect(bounds, paint);
-        bounds.left = layout.getLineLeft(layout.getLineCount() - 3);
-        bounds.right = layout.getLineRight(layout.getLineCount() - 3);
-        bounds.top = layout.getLineTop(layout.getLineCount() - 3);
-        bounds.bottom = layout.getLineBottom(layout.getLineCount() - 3);
+        bounds.left = layout.getLineLeft(layout.getLineCount() - 4);
+        bounds.right = layout.getLineRight(layout.getLineCount() - 4);
+        bounds.top = layout.getLineTop(layout.getLineCount() - 4);
+        bounds.bottom = layout.getLineBottom(layout.getLineCount() - 4);
         canvas.drawRect(bounds, paint);
+        super.onDraw(canvas);
     }
 }

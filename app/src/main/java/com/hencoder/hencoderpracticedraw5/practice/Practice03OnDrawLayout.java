@@ -26,12 +26,14 @@ public class Practice03OnDrawLayout extends LinearLayout {
 
     {
         // 在这里插入 setWillNotDraw(false) 以启用完整的绘制流程
+        setWillNotDraw(false);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        /*Linear有绘制优化，直接绘制子布局，跳过自身主体绘制*/
         pattern.draw(canvas);
     }
 

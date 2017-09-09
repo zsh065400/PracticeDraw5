@@ -48,5 +48,14 @@ public class Practice01AfterOnDrawView extends AppCompatImageView {
             canvas.drawText(getResources().getString(R.string.image_size, bounds.width(), bounds.height()), 20, 40, paint);
             canvas.restore();
         }*/
+        final Drawable drawable = getDrawable();
+        if (drawable != null) {
+            canvas.save();
+            canvas.concat(getImageMatrix());
+            final Rect bounds = drawable.getBounds();
+            System.out.println(bounds.width() + ":" + bounds.height());
+            canvas.drawText(getResources().getString(R.string.image_size, bounds.width(), bounds.height()), 20, 40, paint);
+            canvas.restore();
+        }
     }
 }

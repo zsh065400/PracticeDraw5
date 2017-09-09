@@ -24,6 +24,7 @@ public class Practice04DispatchDrawLayout extends LinearLayout {
     }
 
     {
+        /*优化后的绘制流程，dispatchDraw正常绘制*/
         setWillNotDraw(false);
     }
 
@@ -33,6 +34,12 @@ public class Practice04DispatchDrawLayout extends LinearLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
         pattern.draw(canvas);
     }
 
